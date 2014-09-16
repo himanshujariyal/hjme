@@ -31,7 +31,7 @@ display: none;
 }
 
 #myName{
-	text-align: left;
+	text-align: center;
 font-family: 'proxima_novalight';
 font-size: 30px;
 }
@@ -378,8 +378,9 @@ background-position-x: 0px;
 background-position-y: -38px;
 margin-right: 20px;
 margin-bottom: 20px;
-float: left;
 background-size: 238%;
+margin:0 auto;
+margin-bottom: 10px;
 }
 #pica img{
 	width: 500px;
@@ -395,6 +396,7 @@ color: rgba(101, 101, 101, 0.8);
 font-size: 18px;
 line-height: 1.6;
 /*padding-bottom: 10px;*/
+text-align: center;
 
 }
 
@@ -430,6 +432,7 @@ color: rgb(118, 118, 118);
 
 #social{
 	margin-top: 10px;
+	text-align: center;
 }
 
 #social a{
