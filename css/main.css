@@ -540,17 +540,17 @@ margin: 0 auto;
 }
 
 #pica{
-	background: url('../images/me.jpg');
-width: 100px;
-height: 100px;
-border-radius: 200px;
+background: url('../images/me.jpg');
+width: 211px;
+height: 282px;
+border-radius: 3px;
 background-position-x: 0px;
-background-position-y: -38px;
+background-position-y: -41px;
 margin-right: 20px;
-margin-bottom: 20px;
-background-size: 238%;
-margin:0 auto;
-margin-bottom: 10px;
+margin: 0 auto;
+margin-bottom: 25px;
+background-size: cover;
+margin-top: -15px;
 }
 #pica img{
 	width: 500px;
