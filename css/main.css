@@ -602,6 +602,9 @@ color: rgba(64, 171, 16, 0.8);
 line-height: 1.6;
 }
 
+.caption>img{
+  border: 1px solid #EEE;
+}
 #abtsec{
 	padding-top: 30px;
 }
