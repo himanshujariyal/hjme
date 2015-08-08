@@ -698,37 +698,31 @@ text-align: center;
   display: none;
 }
 .itemWrapper:hover{
-  background: #F1F1F1;
+  background: #ECECEC;
 }
 
 .itemWrapper{
-      padding-bottom: 20px;
-    padding-top: 40px;
+      padding-bottom: 25px;
+    padding-top: 25px;
     transition: 300ms background;
     text-align: center;
     cursor: pointer;
 }
 
 .projectTitle{
-      margin: 0;
     font-family: 'proxima_novalight';
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     color: #333;
     font-size: 30px;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 44px;
 }
 
 .item>figcaption>p{
-      margin: 0;
-    font-family: 'proxima_nova_rgregular';
-    font-size: 16px;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #888888;
-    line-height: 1.4;
-    margin-bottom: 30px;
+    color: #656565;
+    font-size: 13px;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
 
@@ -746,4 +740,6 @@ text-align: center;
     font-family: 'proxima_nova_rgbold';
     color: rgb(118, 118, 118);
     padding: 100px 0px;
+        max-width: 600px;
+    margin: 0 auto;
   }
