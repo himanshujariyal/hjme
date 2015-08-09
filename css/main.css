@@ -6,6 +6,17 @@ body{
 	-moz-osx-font-smoothing: grayscale;
       overflow-y: scroll;
 }
+::-moz-selection
+{
+ background: orange;
+ color: white;
+ }
+::selection
+{
+background: orange;
+color: white;
+}
+
 
 @-webkit-keyframes shake-slow { 0% { -webkit-transform: translate(0px, 0px) rotate(0deg); }
   2% { -webkit-transform: translate(-1px, 3px) rotate(-1.5deg); }
@@ -544,29 +555,26 @@ margin: 0 auto;
 }
 
 #pica{
-background: url('../images/me.jpg');
-width: 211px;
-height: 282px;
-border-radius: 3px;
-background-position-x: 0px;
-background-position-y: -41px;
-margin-right: 20px;
-margin: 0 auto;
-margin-bottom: 25px;
-background-size: cover;
-margin-top: -15px;
+    background: url('../images/me.jpg');
+    width: 200px;
+    height: 200px;
+    border-radius: 170px;
+    background-position-x: 0px;
+    background-position-y: -30px;
+    margin-right: 20px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    background-size: cover;
+    margin-top: 25px;
+}
 }
 #pica img{
 	width: 500px;
 }
 
 #leftInfo{
-  /*margin: 30px;*/
-  width: 50%;
-  border-right: 1px solid #DADADA;
-  margin-top: 20px;
-  float: left;
-  margin-bottom: 20px;
+    width: 50%;
+    margin: 0 auto;
 }
 
 
@@ -580,18 +588,14 @@ margin-top: -15px;
 }
 
 .textme{
-	margin: 0;
-/*padding: 0 0 0.3em;*/
-font-family: 'proxima_novalight';
-text-rendering: optimizeLegibility;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-color: rgba(101, 101, 101, 0.8);
-font-size: 18px;
-line-height: 1.6;
-/*padding-bottom: 10px;*/
-text-align: left;
-margin-bottom: 5px;
+    text-align: left;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'proxima_nova_rgregular';
+    color: #808080;
+    font-size: 15px;
+    margin: 0 auto;
+    line-height: 27px;
 }
 
 .caption{
@@ -622,11 +626,14 @@ line-height: 1.6;
 }
 
 .smallHead{
-  font-weight: bold;
-font-size: 14px;
-color: #5C5C5C;
-margin: 10px 0px 10px 0px;
-text-transform: uppercase;
+    font-family: 'proxima_novalight';
+    color: #333;
+    font-size: 30px;
+    font-style: normal;
+    text-transform: uppercase;
+    line-height: 44px;
+    margin-bottom: 35px;
+    margin-top: 47px;
 }
 
 #social ul li{
@@ -688,10 +695,11 @@ text-align: center;
 }
 
 .tags{
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    font-size: 11px;
+  font-size: 10px;
     color: #9A9A9A;
+    letter-spacing: .2em;
+    line-height: 1.5em;
+    text-transform: uppercase;
 }
 
 .slideshow{
@@ -719,8 +727,8 @@ text-align: center;
 }
 
 .item>figcaption>p{
-    color: #656565;
-    font-size: 13px;
+    color: #808080;
+    font-size: 15px;
     max-width: 300px;
     margin: 0 auto;
   }
@@ -742,4 +750,39 @@ text-align: center;
     padding: 100px 0px;
         max-width: 600px;
     margin: 0 auto;
+  }
+
+  .oneExperience{
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .companyName{
+    font-family: 'proxima_nova_rgregular';
+    color: #636363;
+    font-size: 19px;
+    font-style: normal;
+  }
+
+   .position{
+    text-align: left;
+    font-family: 'proxima_nova_rgregular';
+    color: #808080;
+    font-size: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .duration{
+    font-size: 10px;
+    color: #8C8C8C;
+    letter-spacing: .2em;
+    line-height: 1.5em;
+    text-transform: uppercase;
+  }
+
+  .company{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 35px;
   }
