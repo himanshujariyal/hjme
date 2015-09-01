@@ -999,7 +999,6 @@ ul li {
 .item{
     width: 76%;
     background-color: rgba(255, 255, 255, 0.36);
-    padding: 30px 0px;
     height: 176px;
     top: 50%;
     position: absolute;
@@ -1018,15 +1017,17 @@ ul li {
     display: block;
     z-index: 0;
 }
+
 .tags {
     font-size: 10px;
     color: #FFFFFF;
     letter-spacing: .2em;
-    line-height: 1.5em;
     text-transform: uppercase;
     padding: 10px 0px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.39);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    font-family: 'proxima_nova_rgbold';
 }
+
 .slideshow {
     display: none;
 }
@@ -1042,17 +1043,19 @@ ul li {
 }
 .projectTitle {
     font-family: 'proxima_nova_rgbold';
-    color: #FFF;
+    color: rgb(255, 255, 255);
     font-size: 26px;
     font-style: normal;
     text-transform: uppercase;
-    line-height: 44px;
+    letter-spacing: 1px;
+        margin-top: 46px;
 }
 .item>figcaption>p {
     color: #808080;
     font-size: 15px;
     max-width: 300px;
     margin: 0 auto;
+    display: none;
 }
 .profile {
     color: #888888;
