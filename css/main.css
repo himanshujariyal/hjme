@@ -1249,3 +1249,8 @@ ul li {
     background: url('../img/thumb/join.jpg');
     background-size: cover;
 }
+
+.mapper-thumb{
+    background: url('../img/thumb/mapper.jpg');
+    background-size: cover;
+}
