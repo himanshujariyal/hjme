@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/normalise.css">
 </head>
 <body>
-    <div id="header">
+    <div id="header" class="container">
             <div id="myName" class="container">
                 <span class="intro__title__phrase first"><span id="name">Himanshu Jariyal</span></span>
                 <span class="intro__title__phrase second"><div class="profile">UI/UX Designer & Frontend Developer</div></span>
@@ -21,8 +21,8 @@
 
     <div id="mainDiv">
         <div class="tabs tabs-style-underline">
-                    <nav id="navigation">
-                        <ul class="container">
+                    <nav id="navigation" class="container">
+                        <ul class="">
                             <li><a href="#section-underline-1"><span>Work</span></a></li>
                             <li><a href="#section-underline-1" ><span>About</span></a></li>
                         </ul>
@@ -43,40 +43,48 @@
                                             <div class="itemWrapper eq col-md-8 right bottom jukebox-thumb">
                                                 <figure class="item effect-jazz">
                                                     <figcaption>
-                                                        <div class="tags">Javascript, Soundmanager</div>
                                                         <h3 class="projectTitle">Jukebox</h3>
                                                         <p>Music web application.</p>
+                                                        <div class="tags">Javascript, Soundmanager</div>
                                                     </figcaption>
                                                 </figure>
                                             </div>
                                             <div class="itemWrapper eq col-md-4 bottom lectut-thumb">
                                                 <figure class="item effect-jazz">
-                                                    <figcaption><div class="tags">UI/UX, Angular, Grunt, Sass</div>
+                                                    <figcaption>
                                                     <h3 class="projectTitle">Lectut</h3>
-                                                    <p>Online study portal.</p></figcaption>
+                                                    <p>Online study portal.</p>
+                                                    <div class="tags">UI/UX, Angular, Grunt, Sass</div>
+                                                </figcaption>
                                                 </figure>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="itemWrapper eq col-md-4 right mapper-thumb">
                                                 <figure class="item">
-                                                    <figcaption><div class="tags">Angular, Sass, Yeoman</div>
+                                                    <figcaption>
                                                     <h3 class="projectTitle">Merchant Panel</h3>
-                                                    <p>Minimal functionality POS.</p></figcaption>
+                                                    <p>Minimal functionality POS.</p>
+                                                    <div class="tags">Angular, Sass, Yeoman</div>
+                                                </figcaption>
                                                 </figure>
                                             </div>
                                             <div class="itemWrapper eq col-md-4 right inventory-thumb">
                                                 <figure class="item">
-                                                    <figcaption><div class="tags">Frontend, Ui-Grid</div>
+                                                    <figcaption>
                                                     <h3 class="projectTitle">Inventory Mapper</h3>
-                                                    <p>Product management system.</p></figcaption>
+                                                    <p>Product management system.</p>
+                                                    <div class="tags">Frontend, Ui-Grid</div>
+                                                </figcaption>
                                                 </figure>
                                             </div>
                                             <div class="itemWrapper eq col-md-4 join-thumb">
                                                 <figure class="item">
-                                                    <figcaption><div class="tags">Frontend, Ui-Grid</div>
-                                                    <h3 class="projectTitle">Join IMG</h3>
-                                                    <p>Recruitment page.</p></figcaption>
+                                                    <figcaption>
+                                                        <h3 class="projectTitle">Join IMG</h3>
+                                                        <p>Recruitment page.</p>
+                                                        <div class="tags">Frontend, Ui-Grid</div>
+                                                    </figcaption>
                                                 </figure>
                                             </div>
                                         </div>
@@ -692,7 +700,7 @@
             var nav = $("#navigation");
             wrap.on("scroll", function(e) {
               console.log(wrap.scrollTop());
-              if (wrap.scrollTop() > 200) {
+              if (wrap.scrollTop() > 300) {
                 nav.addClass("fix-nav");
               } else {
                 nav.removeClass("fix-nav");
