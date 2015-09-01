@@ -545,23 +545,10 @@ img {
     margin-top: 25px;
 }
 #header {
-    display: block;
-    height: 40vh;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background: #FFF;
+    background: #2D2D2D;
     box-sizing: border-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
     height: 200px;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
     padding: 41px 0 0 0;
     position: relative;
 }
@@ -595,6 +582,7 @@ img {
 }
 #navigation {
     height: 57px;
+    border-bottom: 1px solid #DDD;
 }
 /*Tabs*/
 /* Individual tab styles */
@@ -867,7 +855,7 @@ ul li {
     padding-right: 10px;
 }
 #name {
-        color: #515357;
+    color: #D0D0D0;
     text-transform: none;
     letter-spacing: 0px;
     font-size: 37px;
@@ -998,15 +986,13 @@ ul li {
 }
 .item{
     width: 76%;
-    background-color: rgba(255, 255, 255, 0.36);
+    background-color: rgba(0, 0, 0, 0);
     height: 176px;
     top: 50%;
     position: absolute;
     margin-top: -88px;
     left: 50%;
     margin-left: -38%;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.07);
 }
 .item>img {
     position: absolute;
