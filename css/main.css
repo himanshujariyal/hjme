@@ -709,7 +709,7 @@ ul li {
     text-transform: uppercase;
 }
 .tabs nav li.tab-current a {
-    color: #444;
+    color: #525458;
     text-decoration: none;
     border-radius: 8px;
     /* line-height: 61px; */
@@ -867,7 +867,10 @@ ul li {
     padding-right: 10px;
 }
 #name {
-    color: #333333;
+        color: #515357;
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 37px;
 }
 #pica {
     background: url('../images/me.jpg');
@@ -939,12 +942,13 @@ ul li {
 .smallHead {
     font-family: 'proxima_nova_rgbold';
     color: #696969;
-    font-size: 18px;
+    font-size: 16px;
     font-style: normal;
     text-transform: uppercase;
     line-height: 44px;
     margin-bottom: 35px;
     margin-top: 47px;
+    letter-spacing: 0.5px;
 }
 #social ul li {
     display: inline-block;
@@ -1020,8 +1024,8 @@ ul li {
 }
 .projectTitle {
     font-family: 'proxima_novalight';
-    color: #333;
-    font-size: 30px;
+    color: #505050;
+    font-size: 26px;
     font-style: normal;
     text-transform: uppercase;
     line-height: 44px;
