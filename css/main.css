@@ -1043,7 +1043,7 @@ ul li {
 .projectTitle {
     font-family: 'proxima_nova_rgbold';
     color: rgb(255, 255, 255);
-    font-size: 26px;
+    font-size: 22px;
     font-style: normal;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1252,5 +1252,10 @@ ul li {
 
 .mapper-thumb{
     background: url('../img/thumb/mapper.jpg');
+    background-size: cover;
+}
+
+.inventory-thumb{
+    background: url('../img/thumb/inventory.jpg');
     background-size: cover;
 }
