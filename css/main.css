@@ -1025,7 +1025,6 @@ ul li {
     text-transform: uppercase;
     padding: 10px 0px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-    font-family: 'proxima_nova_rgbold';
 }
 
 .slideshow {
@@ -1206,11 +1205,11 @@ ul li {
 
 
 .right{
-  border-right: 1px solid #DDD;
+  border-right: 10px solid #FFF;
 }
 
 .bottom{
-  border-bottom: 1px solid #DDD;
+  border-bottom: 10px solid #FFF;
 }
 
 .top-header {
