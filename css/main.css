@@ -532,6 +532,7 @@ body {
 img {
     border: 1px solid rgba(0, 0, 0, 0.15);
 }
+
 #logo {
     width: 36px;
     height: 52px;
@@ -544,27 +545,15 @@ img {
     margin-left: -18px;
     margin-top: 25px;
 }
+
 #header {
-    display: block;
-    height: 40vh;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background: #FFF;
+    background: #2D2D2D;
     box-sizing: border-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    height: 200px;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding: 41px 0 0 0;
+    height: 300px;
     position: relative;
 }
+
 #myLogo {
     width: 100px;
     height: 100px;
@@ -573,12 +562,14 @@ img {
     border-radius: 100px;
     margin-bottom: 38px;
 }
+
 #myName {
-    font-family: 'proxima_novalight';
+    font-family: 'proxima_nova_rgbold';
     font-size: 35px;
     margin: auto;
         text-align: center;
 }
+
 #myProficiency {
     font-family: 'proxima_nova_rgregular';
     font-size: 15px;
@@ -588,11 +579,13 @@ img {
     color: rgba(0, 0, 0, 0.8);
     line-height: 1.4;
 }
+
 #mainDiv {
     /*margin-top: 18px;*/
     /*border-top: 1px rgba(0,0,0,0.15) solid;*/
     /*background:#FFF;*/
 }
+
 #navigation {
     height: 57px;
 }
@@ -603,7 +596,7 @@ img {
 /*****************************/
 
 .tabs-style-underline nav {
-    /*background: #E8E8E8;*/
+    background: #E8E8E8;
 }
 .tabs-style-underline nav a {
     /* padding: 0.25em 0 0.5em; */
@@ -669,18 +662,7 @@ ul li {
     position: relative;
     margin: 0 auto;
     padding: 0;
-    max-width: 1200px; 
-    list-style: none;
-    -ms-box-orient: horizontal;
-    -ms-box-pack: center;
-    -webkit-flex-flow: row wrap;
-    -moz-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    /* flex-flow: row wrap; */
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
+ 
 }
 
 .tabs nav ul li {
@@ -787,7 +769,6 @@ ul li {
     margin: 0 auto;
     /*max-width: 1200px;*/
     /*text-align: center;*/
-    background-color: #f9f9f9;
 }
 .content-wrap>section.content-current {
     display: block;
@@ -867,10 +848,10 @@ ul li {
     padding-right: 10px;
 }
 #name {
-        color: #515357;
+    color: #EAEAEA;
     text-transform: none;
     letter-spacing: 0px;
-    font-size: 37px;
+    font-size: 33px;
 }
 #pica {
     background: url('../images/me.jpg');
@@ -937,7 +918,7 @@ ul li {
     color: rgb(118, 118, 118);
     padding: 50px;
     margin: 0 auto;
-    max-width: 70vmax;
+    background-color: #f9f9f9;
 }
 .smallHead {
     font-family: 'proxima_nova_rgbold';
@@ -998,15 +979,13 @@ ul li {
 }
 .item{
     width: 76%;
-    background-color: rgba(255, 255, 255, 0.36);
+    background-color: rgba(0, 0, 0, 0);
     height: 176px;
     top: 50%;
     position: absolute;
     margin-top: -88px;
     left: 50%;
     margin-left: -38%;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.07);
 }
 .item>img {
     position: absolute;
@@ -1024,7 +1003,7 @@ ul li {
     letter-spacing: .2em;
     text-transform: uppercase;
     padding: 10px 0px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.51);
 }
 
 .slideshow {
@@ -1047,7 +1026,7 @@ ul li {
     font-style: normal;
     text-transform: uppercase;
     letter-spacing: 1px;
-        margin-top: 46px;
+    margin-top: 57px;
 }
 .item>figcaption>p {
     color: #808080;
@@ -1059,7 +1038,7 @@ ul li {
 .profile {
     color: #888888;
     padding-bottom: 5px;
-    font-family: 'proxima_nova_rgregular';
+    font-family: 'proxima_nova_rgbold';
     font-size: 15px;
 }
 .moreProjects {
@@ -1205,11 +1184,11 @@ ul li {
 
 
 .right{
-  border-right: 10px solid #FFF;
+  /*border-right: 10px solid #FFF;*/
 }
 
 .bottom{
-  border-bottom: 10px solid #FFF;
+  /*border-bottom: 10px solid #FFF;*/
 }
 
 .top-header {
@@ -1238,24 +1217,62 @@ ul li {
 .jukebox-thumb{
     background: url('../img/thumb/jukebox.jpg');
     background-size: cover;
+    background-size: 100%;
+    background-position: center;
+}
+
+.jukebox-thumb:hover{
+      background-size: 105%;
 }
 
 .lectut-thumb{
     background: url('../img/thumb/lectut.jpg');
     background-size: cover;
+    background-size: 100%;
+    background-position: center;
+}
+
+.lectut-thumb:hover{
+      background-size: 105%;
 }
 
 .join-thumb{
     background: url('../img/thumb/join.jpg');
     background-size: cover;
+    background-size: 100%;
+    background-position: center;
+}
+
+.join-thumb:hover{
+      background-size: 105%;
 }
 
 .mapper-thumb{
     background: url('../img/thumb/mapper.jpg');
     background-size: cover;
+    background-size: 100%;
+    background-position: center;
+}
+
+.mapper-thumb:hover{
+      background-size: 115%;
 }
 
 .inventory-thumb{
     background: url('../img/thumb/inventory.jpg');
     background-size: cover;
+    background-size: 110%;
+    background-position: center;
+}
+
+.inventory-thumb:hover{
+      background-size: 100%;
+}
+
+
+.itemWrapper:hover .projectTitle{
+}
+
+#grid-gallery{
+  background-color: #f9f9f9;
 }
