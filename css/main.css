@@ -997,23 +997,41 @@ ul li {
     text-align: center;
 }
 .item{
-  margin: 35px 0;
+    width: 76%;
+    background-color: rgba(255, 255, 255, 0.36);
+    padding: 30px 0px;
+    height: 176px;
+    top: 50%;
+    position: absolute;
+    margin-top: -88px;
+    left: 50%;
+    margin-left: -38%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.07);
 }
 .item>img {
-    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    z-index: 0;
 }
 .tags {
     font-size: 10px;
-    color: #9A9A9A;
+    color: #FFFFFF;
     letter-spacing: .2em;
     line-height: 1.5em;
     text-transform: uppercase;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.39);
 }
 .slideshow {
     display: none;
 }
 .itemWrapper:hover {
-    background: #ECECEC;
+
 }
 .itemWrapper {
     padding-bottom: 25px;
@@ -1023,8 +1041,8 @@ ul li {
     height: 250px;
 }
 .projectTitle {
-    font-family: 'proxima_novalight';
-    color: #505050;
+    font-family: 'proxima_nova_rgbold';
+    color: #FFF;
     font-size: 26px;
     font-style: normal;
     text-transform: uppercase;
@@ -1212,4 +1230,20 @@ ul li {
 .top {
   height: 250px;
   padding-top: 40px;
+}
+
+
+.jukebox-thumb{
+    background: url('../img/thumb/jukebox.jpg');
+    background-size: cover;
+}
+
+.lectut-thumb{
+    background: url('../img/thumb/lectut.jpg');
+    background-size: cover;
+}
+
+.join-thumb{
+    background: url('../img/thumb/join.jpg');
+    background-size: cover;
 }
