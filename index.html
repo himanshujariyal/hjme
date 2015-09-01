@@ -13,19 +13,16 @@
 </head>
 <body>
     <div id="header">
-
-            <div id="myName">
+            <div id="myName" class="container">
                 <span class="intro__title__phrase first"><span id="name">Himanshu Jariyal</span></span>
                 <span class="intro__title__phrase second"><div class="profile">UI/UX Designer & Frontend Developer</div></span>
             </div>
-           
-           
-            </div>
+    </div>
 
     <div id="mainDiv">
         <div class="tabs tabs-style-underline">
                     <nav id="navigation">
-                        <ul>
+                        <ul class="container">
                             <li><a href="#section-underline-1"><span>Work</span></a></li>
                             <li><a href="#section-underline-1" ><span>About</span></a></li>
                         </ul>
@@ -33,9 +30,9 @@
                     <div class="content-wrap group">
                         <section id="section-underline-1">
 
-                        <div id="headPro" class="container">I'm a self taught designer practicing holistic and cohesive design, doing everything from conceptualization to research/testing to implementation.
+                        <div id="headPro" class="container">
                             
-                        Here's a little selection of projects i've done so far.</div>
+                        A little selection of projects i've done so far.</div>
 
                    
 
@@ -43,9 +40,8 @@
                                 <section class="grid-wrap">
                                     <div id="widthFull" class="group">
                                         <div class="row">
-                                            <div class="itemWrapper eq col-md-8 right bottom">
+                                            <div class="itemWrapper eq col-md-8 right bottom jukebox-thumb">
                                                 <figure class="item effect-jazz">
-                                                    <img src="img/thumb/jukebox.jpg" alt="img01"/>
                                                     <figcaption>
                                                         <div class="tags">Javascript, Soundmanager</div>
                                                         <h3 class="projectTitle">Jukebox</h3>
@@ -53,9 +49,8 @@
                                                     </figcaption>
                                                 </figure>
                                             </div>
-                                            <div class="itemWrapper eq col-md-4 bottom">
+                                            <div class="itemWrapper eq col-md-4 bottom lectut-thumb">
                                                 <figure class="item effect-jazz">
-                                                    <img src="img/thumb/jukebox.jpg" alt="img01"/>
                                                     <figcaption><div class="tags">UI/UX, Angular, Grunt, Sass</div>
                                                     <h3 class="projectTitle">Lectut</h3>
                                                     <p>Online study portal.</p></figcaption>
@@ -63,28 +58,25 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="itemWrapper eq col-md-4 right">
+                                            <div class="itemWrapper eq col-md-4 right mapper-thumb">
                                                 <figure class="item">
-                                                    <img src="img/thumb/jukebox.jpg" alt="img01"/>
                                                     <figcaption><div class="tags">Angular, Sass, Yeoman</div>
                                                     <h3 class="projectTitle">Merchant Panel</h3>
                                                     <p>Minimal functionality POS.</p></figcaption>
                                                 </figure>
                                             </div>
-                                            <div class="itemWrapper eq col-md-4 right">
+                                            <div class="itemWrapper eq col-md-4 right inventory-thumb">
                                                 <figure class="item">
-                                                    <img src="img/thumb/jukebox.jpg" alt="img01"/>
                                                     <figcaption><div class="tags">Frontend, Ui-Grid</div>
                                                     <h3 class="projectTitle">Inventory Mapper</h3>
                                                     <p>Product management system.</p></figcaption>
                                                 </figure>
                                             </div>
-                                            <div class="itemWrapper eq col-md-4">
+                                            <div class="itemWrapper eq col-md-4 join-thumb">
                                                 <figure class="item">
-                                                    <img src="img/thumb/jukebox.jpg" alt="img01"/>
                                                     <figcaption><div class="tags">Frontend, Ui-Grid</div>
-                                                    <h3 class="projectTitle">Inventory Mapper</h3>
-                                                    <p>Product management system.</p></figcaption>
+                                                    <h3 class="projectTitle">Join IMG</h3>
+                                                    <p>Recruitment page.</p></figcaption>
                                                 </figure>
                                             </div>
                                         </div>
@@ -640,7 +632,7 @@
                             <div class="position col-md-4">himanshujariyal@gmail.com</div>
                         </div>
                     </div>
-                    <div class="oneExperience container">
+                    <!-- <div class="oneExperience container">
                         <div class="row">
                             <div class="company col-md-8">
                                 <div class="companyName">
@@ -649,7 +641,7 @@
                             </div>
                             <div class="position col-md-4">Govind Bhawan, IIT Roorkee, 247667</div>
                         </div>
-                    </div>
+                    </div> -->
             </div>
         </div>
           
@@ -661,10 +653,10 @@
                                         <div class="col-xs-12 col-md-12 title-contact">Email</div>
                                         <div class="title-value col-xs-12 col-md-12">himanshujariyal@gmail.com</div>
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-md-12 col-xs-12 title-contact">Address</div>
                                         <div class="title-value col-xs-12 col-md-12">Govind Bhawan, IIT Roorkee, 247667</div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </section>
@@ -695,6 +687,19 @@
                 });
 
             })();
+
+            var wrap = $(document);
+            var nav = $("#navigation");
+            wrap.on("scroll", function(e) {
+              console.log(wrap.scrollTop());
+              if (wrap.scrollTop() > 200) {
+                nav.addClass("fix-nav");
+              } else {
+                nav.removeClass("fix-nav");
+              }
+              
+            });
+
         </script>
         <script src="js/bootstrap.min.js"></script>
 </html>

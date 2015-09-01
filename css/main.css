@@ -558,13 +558,11 @@ img {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    height: 35vh;
-    padding: 33px 0 0px;
+    height: 200px;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
     justify-content: center;
-    /* padding: 80px 0 0; */
-    
+    padding: 41px 0 0 0;
     position: relative;
 }
 #myLogo {
@@ -577,11 +575,9 @@ img {
 }
 #myName {
     font-family: 'proxima_novalight';
-    color: #333;
-    font-size: 8vmin;
-    line-height: 12vmin;
+    font-size: 35px;
     margin: auto;
-    text-align: center;
+        text-align: center;
 }
 #myProficiency {
     font-family: 'proxima_nova_rgregular';
@@ -598,15 +594,7 @@ img {
     /*background:#FFF;*/
 }
 #navigation {
-    width: 300px;
-    position: relative;
-    left: 50%;
-    margin-left: -150px;
-    /*border-top: 1px solid #DFDFDF;*/
-    /*border-bottom: 1px solid #DFDFDF;*/
-    /*margin-top: 20px;*/
-    
-    margin-top: -25px;
+    height: 57px;
 }
 /*Tabs*/
 /* Individual tab styles */
@@ -615,7 +603,7 @@ img {
 /*****************************/
 
 .tabs-style-underline nav {
-    /*background: #fff;*/
+    /*background: #E8E8E8;*/
 }
 .tabs-style-underline nav a {
     /* padding: 0.25em 0 0.5em; */
@@ -679,42 +667,33 @@ ul li {
 }
 .tabs nav ul {
     position: relative;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: flex;
     margin: 0 auto;
     padding: 0;
-    max-width: 1200px;
+    max-width: 1200px; 
     list-style: none;
     -ms-box-orient: horizontal;
     -ms-box-pack: center;
     -webkit-flex-flow: row wrap;
     -moz-flex-flow: row wrap;
     -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
     -webkit-justify-content: center;
     -moz-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
 }
+
 .tabs nav ul li {
     position: relative;
     z-index: 1;
-    display: block;
+    display: inline-block;
     margin: 0;
     text-align: center;
-    -webkit-flex: 1;
-    -moz-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    /*border-bottom: 1px rgba(0,0,0,0.15) solid;*/
-    
     padding-top: 10px;
     font-family: 'proxima_nova_rgbold';
     /*text-transform: uppercase;*/
 }
+
 .tabs nav a {
     position: relative;
     display: block;
@@ -730,7 +709,7 @@ ul li {
     text-transform: uppercase;
 }
 .tabs nav li.tab-current a {
-    color: #444;
+    color: #525458;
     text-decoration: none;
     border-radius: 8px;
     /* line-height: 61px; */
@@ -808,6 +787,7 @@ ul li {
     margin: 0 auto;
     /*max-width: 1200px;*/
     /*text-align: center;*/
+    background-color: #f9f9f9;
 }
 .content-wrap>section.content-current {
     display: block;
@@ -887,7 +867,10 @@ ul li {
     padding-right: 10px;
 }
 #name {
-    color: #333333;
+        color: #515357;
+    text-transform: none;
+    letter-spacing: 0px;
+    font-size: 37px;
 }
 #pica {
     background: url('../images/me.jpg');
@@ -959,12 +942,13 @@ ul li {
 .smallHead {
     font-family: 'proxima_nova_rgbold';
     color: #696969;
-    font-size: 18px;
+    font-size: 16px;
     font-style: normal;
     text-transform: uppercase;
     line-height: 44px;
     margin-bottom: 35px;
     margin-top: 47px;
+    letter-spacing: 0.5px;
 }
 #social ul li {
     display: inline-block;
@@ -1003,7 +987,7 @@ ul li {
     clear: both;
 }
 #section-underline-2 {
-    margin-bottom: 150px;
+    /*margin-bottom: 150px;*/
 }
 #section-underline-3 {} #getIn {
     font-size: 16px;
@@ -1013,23 +997,41 @@ ul li {
     text-align: center;
 }
 .item{
-  margin: 35px 0;
+    width: 76%;
+    background-color: rgba(255, 255, 255, 0.36);
+    height: 176px;
+    top: 50%;
+    position: absolute;
+    margin-top: -88px;
+    left: 50%;
+    margin-left: -38%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.07);
 }
 .item>img {
-    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    z-index: 0;
 }
+
 .tags {
     font-size: 10px;
-    color: #9A9A9A;
+    color: #FFFFFF;
     letter-spacing: .2em;
-    line-height: 1.5em;
     text-transform: uppercase;
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
+
 .slideshow {
     display: none;
 }
 .itemWrapper:hover {
-    background: #ECECEC;
+
 }
 .itemWrapper {
     padding-bottom: 25px;
@@ -1039,26 +1041,26 @@ ul li {
     height: 250px;
 }
 .projectTitle {
-    font-family: 'proxima_novalight';
-    color: #333;
-    font-size: 30px;
+    font-family: 'proxima_nova_rgbold';
+    color: rgb(255, 255, 255);
+    font-size: 22px;
     font-style: normal;
     text-transform: uppercase;
-    line-height: 44px;
+    letter-spacing: 1px;
+        margin-top: 46px;
 }
 .item>figcaption>p {
     color: #808080;
     font-size: 15px;
     max-width: 300px;
     margin: 0 auto;
+    display: none;
 }
 .profile {
     color: #888888;
     padding-bottom: 5px;
     font-family: 'proxima_nova_rgregular';
-    text-align: center;
-    font-size: 3vmin;
-    line-height: 3vmin;
+    font-size: 15px;
 }
 .moreProjects {
     text-align: center;
@@ -1203,9 +1205,57 @@ ul li {
 
 
 .right{
-  border-right: 1px solid #DDD;
+  border-right: 10px solid #FFF;
 }
 
 .bottom{
-  border-bottom: 1px solid #DDD;
+  border-bottom: 10px solid #FFF;
+}
+
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+
+
+.fix-nav {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.93) !important;
+}
+
+.top {
+  height: 250px;
+  padding-top: 40px;
+}
+
+
+.jukebox-thumb{
+    background: url('../img/thumb/jukebox.jpg');
+    background-size: cover;
+}
+
+.lectut-thumb{
+    background: url('../img/thumb/lectut.jpg');
+    background-size: cover;
+}
+
+.join-thumb{
+    background: url('../img/thumb/join.jpg');
+    background-size: cover;
+}
+
+.mapper-thumb{
+    background: url('../img/thumb/mapper.jpg');
+    background-size: cover;
+}
+
+.inventory-thumb{
+    background: url('../img/thumb/inventory.jpg');
+    background-size: cover;
 }
