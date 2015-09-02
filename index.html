@@ -13,6 +13,7 @@
 </head>
 <body>
     <div id="header" class="container">
+            <canvas id="canvas" resize></canvas>
             <div id="myName" class="container">
                 <span class="intro__title__phrase first"><span id="name">Himanshu Jariyal</span></span>
                 <span class="intro__title__phrase second"><div class="profile">UI/UX Designer & Frontend Developer</div></span>
@@ -686,7 +687,9 @@
 </body>
         <script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
         <script src="js/modernizr.custom.js"></script>
+        <script src="js/paper.js"></script>
         <script src="js/cbpFWTabs.js"></script>
+        
         <script>
             (function() {
 
@@ -707,8 +710,66 @@
               }
               
             });
-
         </script>
+
+        <script type="text/paperscript" canvas="canvas">
+        var width, height, center;
+        var points = 10;
+        var smooth = true;
+        var path = new Path({
+            fillColor: '#3E3E3E'
+        });
+        var mousePos = view.center / 2;
+        var pathHeight = mousePos.y;
+        initializePath();
+
+        function initializePath() {
+            center = view.center;
+            width = view.size.width;
+            height = view.size.height - 50 ;
+            path.segments = [];
+            path.add(view.bounds.bottomLeft);
+            for (var i = 1; i < points; i++) {
+                var point = new Point(width / points * i, center.y);
+                path.add(point);
+            }
+            path.add(view.bounds.bottomRight);
+            path.fullySelected = false;
+        }
+
+        function onFrame(event) {
+            pathHeight += (center.y - mousePos.y - pathHeight) / 50;
+            for (var i = 1; i < points; i++) {
+                var sinSeed = event.count + (i + i % 10) * 100;
+                var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
+                var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
+                path.segments[i].point.y = yPos;
+            }
+            if (smooth)
+                path.smooth();
+        }
+
+        function onMouseMove(event) {
+            mousePos = event.point;
+        }
+
+        function onMouseDown(event) {
+            smooth = !smooth;
+            if (!smooth) {
+                // If smooth has been turned off, we need to reset
+                // the handles of the path:
+                for (var i = 0, l = path.segments.length; i < l; i++) {
+                    var segment = path.segments[i];
+                    segment.handleIn = segment.handleOut = null;
+                }
+            }
+        }
+
+        // Reposition the path whenever the window is resized:
+        function onResize(event) {
+            initializePath();
+        }
+    </script>
         <script src="js/bootstrap.min.js"></script>
 </html>
 
