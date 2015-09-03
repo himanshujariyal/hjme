@@ -1,5 +1,5 @@
 body {
-    background-color: #FFF;
+    background-color: #F9F9F9;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -819,25 +819,22 @@ ul li {
 }
 .heading {
     margin: 0;
-    font-family: 'proxima_nova_rgregular';
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #333;
-    font-size: 30px;
-    text-align: center;
+    font-family: 'proxima_nova_rgbold';
+    color: #696969;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 44px;
+    border-bottom: 1px solid #F1ECEC;
+    margin-bottom: 23px;
 }
 .subheading {
-    margin: 0;
+    text-align: left;
+    margin-bottom: 25px;
+    position: relative;
     font-family: 'proxima_nova_rgregular';
+    color: #717070;
     font-size: 16px;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: rgba(0, 0, 0, 0.8);
-    line-height: 1.4;
-    margin-bottom: 30px;
-    text-align: center;
+    line-height: 27px;
 }
 .block {
     margin-bottom: 80px;
@@ -845,9 +842,9 @@ ul li {
 }
 .line {
     border: 1px rgba(0, 0, 0, 0.05) solid;
+    border-top: 0px;
     padding-top: 50px;
     background: #FFF;
-    margin-top: 50px;
 }
 .poster {
     width: 500px;
@@ -919,7 +916,7 @@ ul li {
     line-height: 1.6;
 }
 .caption>img {
-    border: 15px solid #EEE;
+    border: 1px solid #EEE;
 }
 #abtsec {
     padding-top: 30px;
@@ -931,7 +928,7 @@ ul li {
     color: rgb(118, 118, 118);
     padding: 50px;
     margin: 0 auto;
-    background-color: #f9f9f9;
+    background-color: #FFF;
 }
 .smallHead {
     font-family: 'proxima_nova_rgbold';
@@ -1018,6 +1015,7 @@ ul li {
     text-transform: uppercase;
     padding: 5px 0px;
     /* border-top: 1px solid rgba(255, 255, 255, 0.51); */
+    display: none;
 }
 
 .slideshow {
@@ -1043,11 +1041,11 @@ ul li {
     margin-top: 57px;
 }
 .item>figcaption>p {
-    color: #808080;
+    color: #FFFFFF;
     font-size: 15px;
     max-width: 300px;
     margin: 0 auto;
-    display: none;
+    font-family: 'proxima_nova_rgregular';
 }
 .profile {
     color: #888888;
@@ -1104,6 +1102,7 @@ ul li {
     font-style: normal;
     text-transform: uppercase;
 }
+
 .title-value {
     text-align: left;
     margin-bottom: 30px;
@@ -1115,9 +1114,10 @@ ul li {
     padding-top: 20px;
     padding-bottom: 30px;
 }
+
 .wrapper-project {
-    margin-top: 50px;
 }
+
 .intro__title__phrase {
     display: block;
     opacity: 0;
@@ -1180,13 +1180,21 @@ ul li {
     position: relative;
 }
 #header-in-project {
-    background: #FFF;
+    background: #2D2D2D;
     padding: 20px 0px;
-    border-bottom: 1px solid #EAEAEA;
+    /*text-align: center;*/
+        padding-left: 30px;
+    padding-right: 30px;
 }
+
+.profile-in-project{
+  color: #888888;
+      font-family: 'proxima_nova_rgbold';
+}
+
 #myName-in-project {
     font-family: 'proxima_nova_rgbold';
-    color: #333;
+    color: #EAEAEA;
     margin: auto;
     font-size: 24px;
 }
@@ -1283,7 +1291,7 @@ ul li {
 }
 
 #grid-gallery{
-  background-color: #f9f9f9;
+  background-color: #FFF;
 }
 
 #canvas{
@@ -1292,5 +1300,5 @@ ul li {
 }
 
 .aboutBack{
-  background-color: #f9f9f9;
+  background-color: #FFF;
 }
