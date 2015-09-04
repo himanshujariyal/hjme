@@ -861,7 +861,7 @@ ul li {
     color: #EAEAEA;
     text-transform: none;
     letter-spacing: 0px;
-    font-size: 33px;
+    font-size: 26px;
 }
 #pica {
     background: url('../images/me.jpg');
@@ -915,9 +915,11 @@ ul li {
     
     line-height: 1.6;
 }
+
 .caption>img {
     border: 1px solid #EEE;
 }
+
 #abtsec {
     padding-top: 30px;
 }
@@ -1182,9 +1184,12 @@ ul li {
 #header-in-project {
     background: #2D2D2D;
     padding: 20px 0px;
+        height: 100px;
     /*text-align: center;*/
-        padding-left: 30px;
-    padding-right: 30px;
+}
+
+.name-header-left{
+  padding-left: 30px;
 }
 
 .profile-in-project{
@@ -1301,4 +1306,79 @@ ul li {
 
 .aboutBack{
   background-color: #FFF;
+}
+
+.arrows{
+      width: 100px;
+    height: 100%;
+    display: block;
+    position: absolute;
+}
+.arrows>a{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 300px;
+    display: block;
+    margin-top: -15px;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+.arrows>a:hover{
+  background-color: rgba(255, 255, 255, 0.22);
+}
+.arrows>a>i{
+  font-size: 20px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.54);
+}
+
+span.prev.arrows {
+    left: 0px;
+    top: 0px;
+}
+
+span.next.arrows {
+    right: 0px;
+    top: 0px;
+}
+
+.overlayDiv{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.33);
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.links-project-header>ul>li>a{
+  display: inline-block;
+  color: #888888;
+  font-family: 'proxima_nova_rgbold';
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+
+.links-project-header>ul>li>a:hover{
+  color: #DDD;
+}
+
+.links-project-header>ul{
+  float: right;
+}
+
+.links-project-header{
+    padding-right: 30px;
+    line-height: 54px;
 }
