@@ -12,14 +12,32 @@
     <link rel="stylesheet" type="text/css" href="../css/normalise.css">
 </head>
 <body>
+    <div class="toTop" id="scrollTop" style="display: block;"><i class="fa fa-arrow-circle-up" style="padding-right:5px; float:right;"></i></div>
+    <div class="wrapper-loader" id="overlay-loader">
+        <div class="circle">
+            <div class="all-loader" >
+                <div class="loader-div"></div> 
+                <div class="line-loader one">
+                </div>
+                <div class="line-loader two">
+                </div>
+                <div class="line-loader three">
+                </div>
+                <div class="line-loader four">
+                </div>
+                <div class="line-loader five">
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="header-in-project" class="container">
         <div class="container">
             <div class="row">
-                <div class="name-header-left col-sm-6">
+                <div class="name-header-left col-xs-6">
                     <div id="myName-in-project"><span id="name-in-project">Himanshu Jariyal</span></div>
                     <div class="profile-in-project">UI/UX Designer & Frontend Developer</div>
                 </div>
-                <div class="links-project-header col-sm-6">
+                <div class="links-project-header col-xs-6">
                     <ul>
                         <li>
                             <a href="../index.html">
@@ -189,8 +207,25 @@
     </div>
   
 </body>
+        <script>
+            function smoothlyEaseOut () {
+                document.getElementById('overlay-loader').style.opacity = 0;
+                setTimeout(function(){ 
+                    document.getElementById('overlay-loader').style.display = 'none';
+                }, 500);
+            }
+            window.onload = function(){
+                smoothlyEaseOut();
+            }
+            document.onload = function(){
+                setTimeout(function(){ 
+                    smoothlyEaseOut();
+                }, 8000);
+            }
+        </script>
         <!-- // <script type="text/javascript" src="../js/jquery-1.9.1.js"></script> -->
         <!-- // <script src="../js/bootstrap.min.js"></script> -->
+        <script type="text/javascript" src="../js/main.js"></script>
 </html>
 
 

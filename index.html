@@ -12,6 +12,23 @@
     <link rel="stylesheet" type="text/css" href="css/normalise.css">
 </head>
 <body>
+    <div class="wrapper-loader" id="overlay-loader">
+        <div class="circle">
+            <div class="all-loader" >
+                <div class="loader-div"></div> 
+                <div class="line-loader one">
+                </div>
+                <div class="line-loader two">
+                </div>
+                <div class="line-loader three">
+                </div>
+                <div class="line-loader four">
+                </div>
+                <div class="line-loader five">
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="header" class="container">
             <canvas id="canvas" resize></canvas>
             <div id="myName" class="container">
@@ -712,7 +729,13 @@
             var wrap = $(document);
             var nav = $("#navigation");
             wrap.on("scroll", function(e) {
-              console.log(wrap.scrollTop());
+              if (wrap.scrollTop() > window.innerHeight) {
+                document.getElementById('overlay-loader').style.display = 'block';
+              }
+              else{
+                document.getElementById('overlay-loader').style.display = 'none';
+              }
+
               if (wrap.scrollTop() > 300) {
                 nav.addClass("fix-nav");
               } else {
@@ -720,6 +743,22 @@
               }
               
             });
+        </script>
+        <script>
+            function smoothlyEaseOut () {
+                document.getElementById('overlay-loader').style.opacity = 0;
+                setTimeout(function(){ 
+                    document.getElementById('overlay-loader').style.display = 'none';
+                }, 500);
+            }
+            window.onload = function(){
+                smoothlyEaseOut();
+            }
+            document.onload = function(){
+                setTimeout(function(){ 
+                    smoothlyEaseOut();
+                }, 8000);
+            }
         </script>
 
         <script type="text/paperscript" canvas="canvas">
@@ -780,6 +819,7 @@
             initializePath();
         }
     </script>
+
         <!-- // <script src="js/bootstrap.min.js"></script> -->
 </html>
 
