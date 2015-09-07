@@ -827,6 +827,15 @@ ul li {
     border-bottom: 1px solid #F1ECEC;
     margin-bottom: 23px;
 }
+
+.point-heading{
+    margin: 0;
+    font-family: 'proxima_nova_rgbold';
+    color: #696969;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 44px;
+}
 .subheading {
     text-align: left;
     margin-bottom: 25px;
@@ -1645,13 +1654,13 @@ span.next.arrows {
 }
 
 .circle{
-position: absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     width: 200px;
     border-radius: 200px;
     height: 200px;
-    background-color: #45A7E0;
+    background-color: #2798DA;
     margin-top: -100px;
     margin-left: -100px;
     zoom:80%;
@@ -1667,7 +1676,7 @@ position: absolute;
 }
 
 .line-loader{
-    background: #2D86B9;
+    background: #126FA5;
     display: inline-block;
     overflow: hidden;
     width: 5px;
