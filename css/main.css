@@ -827,6 +827,15 @@ ul li {
     border-bottom: 1px solid #F1ECEC;
     margin-bottom: 23px;
 }
+
+.point-heading{
+    margin: 0;
+    font-family: 'proxima_nova_rgbold';
+    color: #696969;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 44px;
+}
 .subheading {
     text-align: left;
     margin-bottom: 25px;
