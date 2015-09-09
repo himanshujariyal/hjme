@@ -564,13 +564,10 @@ img {
 }
 
 #myName {
-    font-family: 'proxima_nova_rgbold';
     font-size: 35px;
     margin: auto;
-        text-align: center;
-
-        /**/
-            font-family: 'proxima_nova_rgbold';
+    text-align: center;
+    font-family: 'proxima_nova_rgbold';
     font-size: 35px;
     margin: auto;
     text-align: center;
@@ -580,7 +577,7 @@ img {
     margin-left: -200px;
     width: 400px;
     top: 50%;
-    margin-top: -42px;
+    margin-top: -31px;
 }
 
 #myProficiency {
@@ -867,7 +864,7 @@ ul li {
     padding-right: 10px;
 }
 #name {
-    color: #EAEAEA;
+    color: #FFFFFF;
     text-transform: none;
     letter-spacing: 0px;
     font-size: 26px;
@@ -1208,7 +1205,7 @@ ul li {
 
 #myName-in-project {
     font-family: 'proxima_nova_rgbold';
-    color: #EAEAEA;
+    color: #FFFFFF;
     margin: auto;
     font-size: 24px;
 }
