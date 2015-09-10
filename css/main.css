@@ -1724,3 +1724,11 @@ bottom: -2px;
     bottom: 100px;
     display: none;
 }
+
+.caption-italic{
+    float: right;
+    color: #585858;
+    font-family: 'proxima_novalight';
+    font-size: 14px;
+    font-style: italic;
+}
