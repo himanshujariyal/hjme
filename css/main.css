@@ -1,5 +1,5 @@
 body {
-    background-color: #F9F9F9;
+    background-color: #dfdfdf;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -12,6 +12,13 @@ body {
 ::selection {
     background: orange;
     color: white;
+}
+
+a{
+    color: #FFA433;
+}
+a:hover{
+    color: #FFA433;
 }
 @-webkit-keyframes shake-slow {
     0% {
@@ -606,7 +613,8 @@ img {
 /*****************************/
 
 .tabs-style-underline nav {
-    background: #E8E8E8;
+    background: rgb(244, 244, 244);
+    border-bottom: 1px solid #E6E6E6;
 }
 .tabs-style-underline nav a {
     /* padding: 0.25em 0 0.5em; */
@@ -847,7 +855,7 @@ ul li {
     max-width: 69em;
 }
 .line {
-    border: 1px rgba(0, 0, 0, 0.05) solid;
+    /*border: 1px rgba(0, 0, 0, 0.05) solid;*/
     border-top: 0px;
     padding-top: 50px;
     background: #FFF;
@@ -967,20 +975,18 @@ ul li {
 #social a:hover {
     color: #222;
 }
+
 #footer {
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     font-size: 12px;
     color: #AAA;
-    width: 100%;
     background: rgb(244, 244, 244);
     border-top: 1px solid #E6E6E6;
     bottom: 0;
-    /*position: absolute;*/
-    
-    display: none;
 }
+
 .group:after {
     content: "";
     display: table;
@@ -1077,18 +1083,36 @@ ul li {
 }
 .companyName {
     font-family: 'proxima_nova_rgregular';
-    color: #636363;
     font-size: 19px;
     font-style: normal;
+}
+
+.companyName>a{
+    color: #FFA433;
+}
+.companyName>span{
+    font-size: 12px;
+    color: #8E8E8E;
 }
 .position {
     text-align: left;
     font-family: 'proxima_nova_rgregular';
     color: #808080;
     font-size: 15px;
-    padding-left: 0px;
-    padding-right: 0px;
+    margin-bottom: 18px;
 }
+
+.desc-company{
+        text-align: left;
+    margin-bottom: 30px;
+    position: relative;
+    font-family: 'proxima_nova_rgregular';
+    color: #717070;
+    font-size: 15px;
+    margin: 0 auto;
+    line-height: 27px;
+}
+
 .duration {
     font-size: 11px;
     color: #8C8C8C;
@@ -1698,8 +1722,8 @@ span.next.arrows {
 }
 
 .four{
-        height: 50px;
-bottom: -2px;
+    height: 50px;
+    bottom: -2px;
     left: 31px;
     -webkit-transform: rotate(30deg);
 }
@@ -1718,7 +1742,7 @@ bottom: -2px;
     bottom: 45px;
     right: 50px;
     font-size: 40px;
-    color: rgb(255, 160, 0);
+    color: rgb(193, 193, 193);
     cursor: pointer;
     z-index: 4;
     bottom: 100px;
@@ -1731,4 +1755,34 @@ bottom: -2px;
     font-family: 'proxima_novalight';
     font-size: 14px;
     font-style: italic;
+}
+
+.social{
+    font-size: 14px;
+    font-family: proxima_nova_rgbold;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.social>div>span{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.social>div>span:last-child{
+    padding-right: 0px;
+}
+
+.social>div>span>a{
+    color: #696969;
+}
+
+.social>div>span>a:hover{
+   color:#FDAB46;
+}
+
+.copyright-notice{
+        font-family: proxima_nova_rgbold;
+    font-size: 12px;
+    text-transform: uppercase;
 }
