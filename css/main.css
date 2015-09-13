@@ -897,6 +897,7 @@ ul li {
 #leftInfo {
     width: 50%;
     margin: 0 auto;
+    margin-bottom: 50px;
 }
 #rightInfo {
     /*margin: 30px;*/
