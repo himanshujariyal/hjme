@@ -1323,6 +1323,17 @@ ul li {
       background-size: 100%;
 }
 
+.stars-above{
+    background: url('../img/thumb/stars-above.jpg');
+    background-size: cover;
+    background-size: 110%;
+    background-position: center;
+}
+
+.stars-above:hover{
+      background-size: 100%;
+}
+
 
 .itemWrapper:hover .projectTitle{
 }
