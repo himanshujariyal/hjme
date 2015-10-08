@@ -314,8 +314,10 @@ ul li {
     font-size: 18px;
     font-style: normal;
     line-height: 44px;
-    border-bottom: 1px solid #F1ECEC;
+    border-bottom: 1px solid #E6E6E6; 
     margin-bottom: 23px;
+    text-align: center;
+    background: #F3F3F3;
 }
 
 .point-heading{
