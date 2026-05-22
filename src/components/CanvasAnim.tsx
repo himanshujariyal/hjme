@@ -34,17 +34,27 @@ export default function CanvasAnim() {
     resize()
     window.addEventListener('resize', resize)
 
+    // Listen on window because the centered name overlay (z-10) sits above
+    // the canvas and would otherwise swallow mousemove events.
     const onMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
       mouseY = e.clientY - rect.top
     }
-    canvas.addEventListener('mousemove', onMove)
+    window.addEventListener('mousemove', onMove)
 
     let smooth = true
-    const onDown = () => {
-      smooth = !smooth
+    const onDown = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect()
+      if (
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom
+      ) {
+        smooth = !smooth
+      }
     }
-    canvas.addEventListener('mousedown', onDown)
+    window.addEventListener('mousedown', onDown)
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -94,10 +104,16 @@ export default function CanvasAnim() {
     return () => {
       cancelAnimationFrame(animId)
       window.removeEventListener('resize', resize)
-      canvas.removeEventListener('mousemove', onMove)
-      canvas.removeEventListener('mousedown', onDown)
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('mousedown', onDown)
     }
   }, [])
 
-  return <canvas ref={canvasRef} id="canvas" aria-hidden="true" />
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className="absolute inset-0 h-full w-full"
+    />
+  )
 }

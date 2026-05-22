@@ -42,10 +42,36 @@
   font-style: normal;
 }
 
-/* ===== GLOBAL ===== */
+/* ===== DESIGN TOKENS (Tailwind v4 @theme) ===== */
+@theme {
+  /* Fonts → utilities: font-pn / font-pn-bold */
+  --font-pn: 'proxima_nova_rgregular', system-ui, sans-serif;
+  --font-pn-bold: 'proxima_nova_rgbold', system-ui, sans-serif;
+
+  /* Colors → utilities: text-accent, bg-header, border-line, etc. */
+  --color-accent: #FFA433;
+  --color-accent-hover: #FDAB46;
+  --color-header: #2D2D2D;
+  --color-wave: #3E3E3E;
+  --color-ink: #525458;
+  --color-heading: #696969;
+  --color-body: #717070;
+  --color-muted: #8C8C8C;
+  --color-muted2: #8E8E8E;
+  --color-profile: #888888;
+  --color-nav: #999999;
+  --color-foot: #aaaaaa;
+  --color-head-text: rgb(118, 118, 118);
+  --color-line: #E6E6E6;
+  --color-line2: #E8E8E8;
+  --color-surface: rgb(244, 244, 244);
+  --color-page: #dfdfdf;
+}
+
+/* ===== GLOBAL BASE ===== */
 body {
-  background-color: #dfdfdf;
-  font-family: 'proxima_nova_rgregular', system-ui, sans-serif;
+  background-color: var(--color-page);
+  font-family: var(--font-pn);
   font-size: 14px;
   line-height: 1.42857143;
   text-rendering: optimizeLegibility;
@@ -55,372 +81,18 @@ body {
 }
 ::selection    { background: orange; color: white; }
 ::-moz-selection { background: orange; color: white; }
-a       { color: #FFA433; }
-a:hover { color: #FFA433; }
 
-/* Bootstrap-like container: centered with responsive max-width */
-.container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  box-sizing: border-box;
-}
-@media (min-width: 768px)  { .container { max-width: 750px; } }
-@media (min-width: 992px)  { .container { max-width: 970px; } }
-@media (min-width: 1200px) { .container { max-width: 1170px; } }
-
-/* App shell: centered with max-width, grey body shows on sides */
-#app-shell {
-  max-width: 1170px;
-  margin: 0 auto;
-  background-color: #fff;
-  box-sizing: border-box;
+/* Link defaults — placed in @layer base so Tailwind utilities (e.g. text-nav,
+   text-accent, text-ink) can override them. Unlayered rules would beat
+   layered Tailwind utilities regardless of specificity. */
+@layer base {
+  a       { color: var(--color-accent); }
+  a:hover { color: var(--color-accent); }
 }
 
-/* ===== HEADER ===== */
-#header {
-  background: #2D2D2D;
-  box-sizing: border-box;
-  display: flex;
-  height: 300px;
-  position: relative;
-}
-#canvas { width: 100%; height: 100%; }
-
-#myName {
-  font-family: 'proxima_nova_rgbold';
-  font-size: 35px;
-  text-align: center;
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-}
-#name {
-  color: #ffffff;
-  text-transform: none;
-  letter-spacing: 0px;
-  font-size: 26px;
-}
-.profile {
-  color: #888888;
-  padding-bottom: 5px;
-  font-family: 'proxima_nova_rgbold';
-  font-size: 15px;
-}
-
-/* Fade-in animations from original */
-.intro__title__phrase { display: block; opacity: 0; }
-.intro__title__phrase.first  { animation: fadein 0.2s ease-out 0.5s forwards; }
-.intro__title__phrase.second { animation: fadein 0.3s ease-out 1.0s forwards; }
+/* ===== KEYFRAMES (used by header intro fade) ===== */
 @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 
-/* ===== NAVIGATION ===== */
-#navigation {
-  height: 57px;
-  background: rgb(244, 244, 244);
-  border-bottom: 1px solid #E6E6E6;
-  text-align: center;
-}
-.nav-inner {
-  display: inline-flex;
-  align-items: stretch;
-  height: 100%;
-}
-.nav-tab {
-  font-family: 'proxima_nova_rgbold';
-  font-size: 14px;
-  text-transform: uppercase;
-  color: #999;
-  text-decoration: none;
-  padding: 11px 5px;
-  padding-top: 21px;
-  width: 110px;
-  display: inline-block;
-  text-align: center;
-  transition: color 0.2s;
-}
-.nav-tab.active { color: #525458; }
-.nav-tab:hover  { color: #525458; }
-.fix-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 40;
-  background-color: rgba(244, 244, 244, 0.97) !important;
-  border-bottom: 1px solid #E6E6E6;
-}
-
-/* ===== PROJECT GRID ===== */
-#mainDiv { /* intentionally empty, matches original */ }
-
-#grid-gallery { background-color: #fff; }
-
-#headPro {
-  text-align: center;
-  font-family: 'proxima_nova_rgbold';
-  color: rgb(118, 118, 118);
-  padding: 50px;
-  background-color: #fff;
-}
-
-/* Bootstrap-style flex rows for the asymmetric grid */
-.proj-row { display: flex; flex-wrap: wrap; }
-.col-4  { flex: 0 0 33.3333%; max-width: 33.3333%; }
-.col-8  { flex: 0 0 66.6666%; max-width: 66.6666%; }
-
-/* Stack tiles on tablets and phones */
-@media (max-width: 767px) {
-  .col-4, .col-8 { flex: 0 0 100%; max-width: 100%; }
-}
-
-/* Project tile */
-.itemWrapper {
-  height: 250px;
-  transition: background 300ms;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  display: block;
-}
-/* Background image layer — scales on hover */
-.itemBg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 400ms ease-out;
-  will-change: transform;
-}
-.itemWrapper:hover .itemBg {
-  transform: scale(1.05);
-}
-/* the full-height link inside itemWrapper */
-.itemWrapper > a,
-.itemWrapper > .item-link {
-  display: block;
-  position: absolute;
-  inset: 0;
-  text-decoration: none;
-  z-index: 1;
-}
-/* hover overlay — always visible with a dark tint */
-.item-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: background-color 300ms;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.itemWrapper:hover .item-overlay {
-  background-color: rgba(0, 0, 0, 0.55);
-}
-.projectTitle {
-  font-family: 'proxima_nova_rgbold';
-  color: #fff;
-  font-size: 22px;
-  letter-spacing: 1px;
-  margin: 0 0 6px;
-}
-.item-desc {
-  color: #ffffff;
-  font-size: 15px;
-  font-family: 'proxima_nova_rgregular';
-  max-width: 300px;
-  margin: 0 auto;
-}
-.tags {
-  display: none;
-}
-
-.moreProjects {
-  text-align: center;
-  font-family: 'proxima_nova_rgbold';
-  color: rgb(118, 118, 118);
-  padding: 100px 0;
-}
-
-/* ===== ABOUT SECTION ===== */
-.abtsec      { padding-top: 30px; }
-.aboutBack   { background-color: #fff; }
-
-#leftInfo {
-  width: 50%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-@media (max-width: 991px) { #leftInfo { width: 80%; } }
-@media (max-width: 600px) { #leftInfo { width: 100%; padding: 0 16px; box-sizing: border-box; } }
-.smallHead {
-  font-family: 'proxima_nova_rgbold';
-  color: #696969;
-  font-size: 16px;
-  line-height: 44px;
-  margin-bottom: 35px;
-  margin-top: 47px;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid #E8E8E8;
-}
-.textme {
-  font-family: 'proxima_nova_rgregular';
-  color: #717070;
-  font-size: 15px;
-  line-height: 27px;
-  margin-bottom: 30px;
-}
-.oneExperience { padding: 20px 0; }
-
-.duration {
-  font-size: 11px;
-  color: #8C8C8C;
-  letter-spacing: 0.2em;
-  line-height: 1.5em;
-}
-.position-title {
-  font-family: 'proxima_nova_rgregular';
-  color: #808080;
-  font-size: 15px;
-  margin-bottom: 18px;
-}
-.companyName {
-  font-family: 'proxima_nova_rgregular';
-  font-size: 19px;
-}
-.companyName a  { color: #FFA433; }
-.companyName span { font-size: 12px; color: #8E8E8E; }
-
-.desc-company {
-  font-family: 'proxima_nova_rgregular';
-  color: #717070;
-  font-size: 15px;
-  line-height: 27px;
-}
-
-/* ===== FOOTER ===== */
-#footer {
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font-size: 12px;
-  color: #aaa;
-  background: rgb(244, 244, 244);
-  border-top: 1px solid #E6E6E6;
-}
-#footer > .container {
-  max-width: 1170px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* ===== ACCESSIBILITY: focus styles ===== */
-a:focus-visible,
-.nav-tab:focus-visible,
-.itemWrapper a:focus-visible {
-  outline: 2px solid #FFA433;
-  outline-offset: 2px;
-}
-
-/* ===== PROJECT DETAIL PAGE ===== */
-.project-detail {
-  background: #fff;
-  padding: 40px 0 60px;
-}
-.project-detail .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 30px;
-}
-.project-detail__back {
-  font-size: 11px;
-  color: #8C8C8C;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 30px;
-}
-.project-detail__hero {
-  width: 100%;
-  height: 350px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 40px;
-}
-.project-detail__title {
-  font-family: 'proxima_nova_rgbold';
-  font-size: 28px;
-  color: #525458;
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-.project-detail__desc {
-  font-family: 'proxima_nova_rgregular';
-  font-size: 15px;
-  color: #717070;
-  margin-bottom: 20px;
-}
-.project-detail__tags {
-  display: block;
-  margin-bottom: 40px;
-  font-family: 'proxima_nova_rgregular';
-  font-size: 11px;
-  color: #8C8C8C;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-.project-detail__cta {
-  font-family: 'proxima_nova_rgregular';
-  font-size: 15px;
-}
-.project-detail__placeholder {
-  font-family: 'proxima_nova_rgregular';
-  font-size: 15px;
-  color: #aaa;
-}
-.notfound {
-  padding: 50px;
-  text-align: center;
-  background: #fff;
-  color: #717070;
-  font-family: 'proxima_nova_rgregular';
-}
-.social {
-  font-size: 14px;
-  font-family: 'proxima_nova_rgbold', system-ui, sans-serif;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-.social > div > span {
-  display: inline-block;
-  padding-right: 10px;
-}
-.social > div > span:last-child {
-  padding-right: 0;
-}
-.social > div > span > a {
-  color: #696969;
-  text-decoration: none;
-}
-.social > div > span > a:hover {
-  color: #FDAB46;
-}
-.copyright-notice {
-  font-family: 'proxima_nova_rgbold', system-ui, sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #aaa;
-}
-
+/* Tiny utility shims (cannot be expressed as Tailwind utilities) */
+.anim-fadein-1 { animation: fadein 0.2s ease-out 0.5s forwards; }
+.anim-fadein-2 { animation: fadein 0.3s ease-out 1.0s forwards; }

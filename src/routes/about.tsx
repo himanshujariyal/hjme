@@ -32,13 +32,18 @@ const experiences = [
 ]
 
 function AboutPage() {
-  return (
-    <section className="abtsec" id="section-underline-2">
-      <div className="container aboutBack">
-        <div className="container" id="leftInfo">
+  const smallHead =
+    'font-pn-bold text-heading text-[16px] leading-[44px] mb-[35px] mt-[47px] tracking-[0.5px] border-b border-line2'
+  const bodyText = 'font-pn text-body text-[15px] leading-[27px]'
+  const positionTitle = 'font-pn text-[#808080] text-[15px] mb-[18px]'
 
-          <div className="smallHead">About Me</div>
-          <div className="textme">
+  return (
+    <section className="pt-[30px]">
+      <div className="bg-white">
+        <div className="mx-auto mb-[50px] w-1/2 max-lg:w-4/5 max-[600px]:w-full max-[600px]:px-4 max-[600px]:box-border">
+
+          <div className={smallHead}>About Me</div>
+          <div className={`${bodyText} mb-[30px]`}>
             I am Himanshu Jariyal, a final year Computer Science undergraduate at IIT Roorkee. I am
             passionate about designing and developing web based products.<br /><br />
             I prototype and iterate a lot, which not only gives me an opportunity to self introspect
@@ -50,33 +55,45 @@ function AboutPage() {
             all around us.
           </div>
 
-          <div className="smallHead">Experience</div>
+          <div className={smallHead}>Experience</div>
 
           {experiences.map((exp) => (
-            <div className="oneExperience" key={exp.company}>
-              <div className="company">
-                <div className="duration">{exp.duration}</div>
-                <div className="position-title">{exp.position}</div>
-                <div className="companyName">
-                  <a href={exp.url} target="_blank" rel="noopener noreferrer">
+            <div className="py-[20px]" key={exp.company}>
+              <div>
+                <div className="text-[11px] text-muted tracking-[0.2em] leading-[1.5em]">
+                  {exp.duration}
+                </div>
+                <div className={positionTitle}>{exp.position}</div>
+                <div className="font-pn text-[19px]">
+                  <a
+                    href={exp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent no-underline hover:text-accent-hover"
+                  >
                     {exp.company}
                   </a>
                 </div>
               </div>
-              <div className="desc-company">{exp.description}</div>
+              <div className={bodyText}>{exp.description}</div>
             </div>
           ))}
 
-          <div className="smallHead">Contact</div>
+          <div className={smallHead}>Contact</div>
 
-          <div className="oneExperience">
-            <div className="company">
-              <div className="companyName">
-                <a href="mailto:himanshujariyal@gmail.com">Email</a>
-                <span> (click to send mail)</span>
+          <div className="py-[20px]">
+            <div>
+              <div className="font-pn text-[19px]">
+                <a
+                  href="mailto:himanshujariyal@gmail.com"
+                  className="text-accent no-underline hover:text-accent-hover"
+                >
+                  Email
+                </a>
+                <span className="text-[12px] text-muted2"> (click to send mail)</span>
               </div>
             </div>
-            <div className="position-title">himanshujariyal@gmail.com</div>
+            <div className={positionTitle}>himanshujariyal@gmail.com</div>
           </div>
 
         </div>

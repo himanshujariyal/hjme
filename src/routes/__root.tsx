@@ -9,7 +9,7 @@ export const Route = createRootRoute({
   component: () => (
     <>
       <Loader />
-      <div id="app-shell">
+      <div className="mx-auto max-w-[1170px] bg-white box-border">
         <Header />
         <NavBar />
         <Outlet />
