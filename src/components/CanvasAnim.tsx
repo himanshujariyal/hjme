@@ -38,7 +38,11 @@ export default function CanvasAnim() {
     // the canvas and would otherwise swallow mousemove events.
     const onMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect()
-      mouseY = e.clientY - rect.top
+      // Clamp to canvas bounds so scrolling past the header (which makes
+      // rect.top negative) doesn't push mouseY way outside the canvas,
+      // which would pin the wave to one extreme.
+      const raw = e.clientY - rect.top
+      mouseY = Math.max(0, Math.min(canvas.height, raw))
     }
     window.addEventListener('mousemove', onMove)
 
@@ -59,7 +63,14 @@ export default function CanvasAnim() {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      pathHeight += (centerY - mouseY - pathHeight) / 50
+      // Ease pathHeight toward target derived from mouseY.
+      // Keep |amplitude| >= MIN so the wave is always visibly undulating.
+      const MIN_AMP = 25
+      const raw = centerY - mouseY
+      const target = raw >= 0
+        ? Math.max(raw, MIN_AMP)
+        : Math.min(raw, -MIN_AMP)
+      pathHeight += (target - pathHeight) / 12
 
       // Compute wave points
       const points: { x: number; y: number }[] = []
