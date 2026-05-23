@@ -53,8 +53,8 @@ function WorkPage() {
 
           <div className="mx-auto max-w-[1170px] px-[15px] text-center font-pn-bold text-head-text py-[100px]">
             <div>
-              I'm also looking for UI/UX &amp; Frontend roles in Startups. Please feel free to{' '}
-              <a href="mailto:himanshujariyal@gmail.com">contact</a> me.
+              Always happy to chat about web performance, frontend at scale, or anything in between.{' '}
+              <a href="mailto:himanshujariyal@gmail.com">Say hi</a>.
             </div>
           </div>
         </div>

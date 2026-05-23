@@ -8,6 +8,8 @@ export default function NavBar() {
   const [fixed, setFixed] = useState(false)
   const { location } = useRouterState()
   const isAbout = location.pathname === '/about'
+  const isBlog = location.pathname === '/blog'
+  const isWork = !isAbout && !isBlog
 
   useEffect(() => {
     const onScroll = () => setFixed(window.scrollY > 300)
@@ -27,9 +29,15 @@ export default function NavBar() {
       <div className="inline-flex items-stretch h-full">
         <Link
           to="/"
-          className={`${tabBase} ${!isAbout ? 'text-ink hover:text-accent' : 'text-nav hover:text-accent'}`}
+          className={`${tabBase} ${isWork ? 'text-ink hover:text-accent' : 'text-nav hover:text-accent'}`}
         >
           <span>Work</span>
+        </Link>
+        <Link
+          to="/blog"
+          className={`${tabBase} ${isBlog ? 'text-ink hover:text-accent' : 'text-nav hover:text-accent'}`}
+        >
+          <span>Blog</span>
         </Link>
         <Link
           to="/about"

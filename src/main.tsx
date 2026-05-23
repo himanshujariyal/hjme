@@ -4,7 +4,12 @@ import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import './index.css'
 
-const router = createRouter({ routeTree })
+// Match Vite's base so client-side route URLs are correct on GitHub Pages
+// (project page is served from /hjme/).
+const router = createRouter({
+  routeTree,
+  basepath: import.meta.env.BASE_URL.replace(/\/$/, ''),
+})
 
 declare module '@tanstack/react-router' {
   interface Register {

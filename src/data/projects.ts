@@ -50,7 +50,5 @@ export const projects: Project[] = [
     description: 'HTML5 Canvas experiment.',
     tags: ['Frontend', 'Canvas'],
     thumb: '/thumb/stars-above.jpg',
-    link: 'http://mojowebdev.github.io/Stars-Above-Us/',
-    external: true,
   },
 ]

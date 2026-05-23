@@ -4,100 +4,154 @@ export const Route = createFileRoute('/about')({
   component: AboutPage,
 })
 
-const experiences = [
+interface Experience {
+  company: string
+  url?: string
+  role: string
+  range: string
+}
+
+const experiences: Experience[] = [
   {
-    duration: 'Jan 2013 - Current',
-    position: 'Design Head (From April 2015)',
-    company: 'IMG IIT Roorkee',
-    url: 'http://img.channeli.in/',
-    description:
-      'IMG is a student body working directly under college administration, responsible for institute website and intranet facilities of IIT Roorkee. Have been working as UI/UX designer and developer with a team of 41, including 10 designers.',
+    company: 'Microsoft',
+    url: 'https://www.microsoft.com/',
+    role: 'Senior Software Engineer',
+    range: '2018 — Now',
   },
   {
-    duration: 'Summer Intern 2015',
-    position: 'Frontend Developer',
-    company: 'Grofers',
-    url: 'http://grofers.com/',
-    description:
-      "Grofers is an on-demand, hyper-local delivery service that connects consumers with their local merchants and is currently operating in 27 cities. My role was to carry out research on user experience and interaction, UI/UX design and implement the Frontend of Merchant Panel(POS) and Inventory Mapper(Internal tool) from scratch using Angular JS.",
+    company: 'Headout',
+    url: 'https://www.headout.com/',
+    role: 'Software Engineer',
+    range: '2016 — 17',
   },
   {
-    duration: 'Summer Intern 2014',
-    position: 'Web Developer',
-    company: 'Almaconnect',
-    url: 'https://www.almaconnect.com/',
-    description:
-      "Alma Connect connects alumni & institutes through its research based platform that brings institute, alumni, students and faculty on the same platform. My project was on making an analytics system for Alma Connect using Logstash, Elasticsearch and Kibana. I contributed in the collection and visualization of data using JavaScript.",
+    company: 'Blinkit',
+    url: 'https://blinkit.com/',
+    role: 'Software Developer',
+    range: '2015 — 16',
+  },
+  {
+    company: 'IMG, IIT Roorkee',
+    url: 'https://channeli.in/',
+    role: 'Head, UI & Frontend',
+    range: '2013 — 16',
   },
 ]
 
+const focusAreas = ['Web Performance', 'PWA', 'TypeScript', 'React', 'Accessibility']
+
+const socials = [
+  { label: 'Email', href: 'mailto:himanshujariyal@gmail.com' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/himanshujariyal' },
+  { label: 'GitHub', href: 'https://github.com/himanshujariyal' },
+  { label: 'X', href: 'https://x.com/him_jar' },
+]
+
 function AboutPage() {
-  const smallHead =
-    'font-pn-bold text-heading text-[16px] leading-[44px] mb-[35px] mt-[47px] tracking-[0.5px] border-b border-line2'
-  const bodyText = 'font-pn text-body text-[15px] leading-[27px]'
-  const positionTitle = 'font-pn text-[#808080] text-[15px] mb-[18px]'
-
   return (
-    <section className="pt-[30px]">
-      <div className="bg-white">
-        <div className="mx-auto mb-[50px] w-1/2 max-lg:w-4/5 max-[600px]:w-full max-[600px]:px-4 max-[600px]:box-border">
+    <section className="pt-[30px] pb-[60px] bg-white">
+      <div className="mx-auto w-1/2 max-lg:w-4/5 max-[600px]:w-full max-[600px]:px-4 max-[600px]:box-border">
 
-          <div className={smallHead}>About Me</div>
-          <div className={`${bodyText} mb-[30px]`}>
-            I am Himanshu Jariyal, a final year Computer Science undergraduate at IIT Roorkee. I am
-            passionate about designing and developing web based products.<br /><br />
-            I prototype and iterate a lot, which not only gives me an opportunity to self introspect
-            but also to take decisions based on thoughtful reasoning. I try to expand my views
-            through valuable feedbacks, both from my juniors and seniors.<br /><br />
-            Apart from designing, I am fond of Hills, Dogs &amp; Music. I like trekking &amp;
-            exploring new places. A curious type, always pumped up for anything challenging, I
-            take every opportunity to learn &amp; grow, explore and enhance the endless possibilities
-            all around us.
+        {/* ===== HERO ===== */}
+        <header className="pt-[20px]">
+          <p className="font-pn text-body text-[16px] leading-[26px]">
+            Hey, I&rsquo;m Himanshu — a Senior Software Engineer at{' '}
+            <span className="text-ink">Microsoft</span>, working out of Bellevue, WA. These
+            days I spend most of my time chasing milliseconds on the Bing Search results
+            page, where I lead the work on{' '}
+            <span className="text-ink">INP &amp; responsiveness</span>. Thanks for stopping
+            by.
+          </p>
+
+          {/* Focus pills inline under hero */}
+          <div className="flex flex-wrap gap-[6px] mt-[20px]">
+            {focusAreas.map((tag) => (
+              <span
+                key={tag}
+                className="inline-block px-[10px] py-[4px] text-[11px] tracking-[0.05em] font-pn text-ink border border-line rounded-full hover:border-accent hover:text-accent transition-colors cursor-default"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
+        </header>
 
-          <div className={smallHead}>Experience</div>
-
+        {/* ===== EXPERIENCE ===== */}
+        <SectionHeading>Experience</SectionHeading>
+        <ul className="divide-y divide-line2 border-y border-line2">
           {experiences.map((exp) => (
-            <div className="py-[20px]" key={exp.company}>
-              <div>
-                <div className="text-[11px] text-muted tracking-[0.2em] leading-[1.5em]">
-                  {exp.duration}
-                </div>
-                <div className={positionTitle}>{exp.position}</div>
-                <div className="font-pn text-[19px]">
-                  <a
-                    href={exp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent no-underline hover:text-accent-hover"
-                  >
+            <li key={exp.company} className="group">
+              <a
+                href={exp.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-baseline justify-between py-[14px] no-underline hover:bg-[rgba(255,164,51,0.04)] -mx-[8px] px-[8px] transition-colors"
+              >
+                <div className="flex items-baseline gap-[12px] min-w-0">
+                  <span className="font-pn-bold text-ink text-[15px] group-hover:text-accent transition-colors truncate">
                     {exp.company}
-                  </a>
+                  </span>
+                  <span className="font-pn text-muted text-[13px] truncate max-[600px]:hidden">
+                    {exp.role}
+                  </span>
                 </div>
-              </div>
-              <div className={bodyText}>{exp.description}</div>
-            </div>
+                <span className="text-[11px] tracking-[0.2em] uppercase text-muted shrink-0 ml-[12px]">
+                  {exp.range}
+                </span>
+              </a>
+            </li>
           ))}
+        </ul>
 
-          <div className={smallHead}>Contact</div>
-
-          <div className="py-[20px]">
-            <div>
-              <div className="font-pn text-[19px]">
-                <a
-                  href="mailto:himanshujariyal@gmail.com"
-                  className="text-accent no-underline hover:text-accent-hover"
-                >
-                  Email
-                </a>
-                <span className="text-[12px] text-muted2"> (click to send mail)</span>
-              </div>
+        {/* ===== EDUCATION + ELSEWHERE — single row ===== */}
+        <div className="mt-[40px] grid grid-cols-2 max-[600px]:grid-cols-1 gap-[32px]">
+          <div>
+            <Label>Education</Label>
+            <div className="font-pn-bold text-ink text-[14px] mt-[6px]">
+              IIT Roorkee
             </div>
-            <div className={positionTitle}>himanshujariyal@gmail.com</div>
+            <div className="font-pn text-muted text-[13px]">
+              B.Tech, Computer Science · 2012–16
+            </div>
           </div>
-
+          <div>
+            <Label>Elsewhere</Label>
+            <div className="flex flex-wrap gap-x-[16px] gap-y-[4px] mt-[6px]">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="text-[14px] font-pn text-ink no-underline border-b border-line2 hover:text-accent hover:border-accent transition-colors pb-[1px]"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
+
       </div>
     </section>
+  )
+}
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-[44px] mb-[16px]">
+      <h2 className="font-pn-bold text-ink text-[12px] tracking-[0.3em] uppercase inline-block">
+        {children}
+      </h2>
+      <span className="block w-[28px] h-[2px] bg-accent mt-[6px]" />
+    </div>
+  )
+}
+
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="text-[10px] tracking-[0.3em] uppercase text-accent font-pn-bold">
+      {children}
+    </div>
   )
 }

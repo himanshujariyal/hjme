@@ -61,7 +61,7 @@ function ProjectDetailPage() {
     <div className="bg-white">
       {/* ─── Hero with prev/next ─── */}
       <section
-        className="relative h-[420px] bg-cover bg-center"
+        className="relative h-[280px] bg-cover bg-center"
         style={{ backgroundImage: `url(${project.thumb})` }}
         role="img"
         aria-label={`${project.title} cover`}
@@ -86,11 +86,11 @@ function ProjectDetailPage() {
         </Link>
 
         <div className="relative h-full flex flex-col items-center justify-center text-center px-6">
-          <h1 className="font-pn-bold text-white text-[40px] tracking-[1px] mb-[10px]">
+          <h1 className="font-pn-bold text-white text-[32px] tracking-[1px] mb-[6px]">
             {project.title}
           </h1>
           {detail?.subtitle && (
-            <p className="font-pn text-white/90 text-[18px] mb-[14px]">
+            <p className="font-pn text-white/90 text-[16px] mb-[10px]">
               {detail.subtitle}
             </p>
           )}
@@ -101,16 +101,19 @@ function ProjectDetailPage() {
       </section>
 
       {detail ? (
-        <article className="mx-auto max-w-[760px] px-[30px] pb-[60px]">
-          {/* ─── About banner ─── */}
-          <SectionBanner>About</SectionBanner>
+        <article className="mx-auto max-w-[960px] px-[30px] pb-[60px]">
+          {/* ─── About ─── */}
+          <h2 className="font-pn-bold text-ink text-[22px] mt-[40px] mb-[18px]">
+            About
+            <span className="block w-[40px] h-[3px] bg-accent mt-[8px]" />
+          </h2>
           <section className="mb-[50px]">
             {detail.about.map((item, i) => (
               <div key={i} className={i > 0 ? 'mt-[28px]' : ''}>
                 {item.heading && (
-                  <h2 className="font-pn-bold text-ink text-[15px] mb-[8px]">
+                  <h3 className="font-pn-bold text-ink text-[15px] mb-[8px]">
                     {item.heading}
-                  </h2>
+                  </h3>
                 )}
                 <p className="font-pn text-body text-[15px] leading-[27px]">
                   {item.text}
@@ -123,8 +126,9 @@ function ProjectDetailPage() {
           {detail.blocks.map((block, i) => (
             <section key={i} className="mb-[50px]">
               {block.heading && (
-                <h3 className="font-pn-bold text-ink text-[20px] mb-[8px]">
+                <h3 className="font-pn-bold text-ink text-[22px] mb-[18px]">
                   {block.heading}
+                  <span className="block w-[40px] h-[3px] bg-accent mt-[8px]" />
                 </h3>
               )}
               {block.description && (
@@ -166,14 +170,6 @@ function ProjectDetailPage() {
           Detailed case study coming soon.
         </p>
       )}
-    </div>
-  )
-}
-
-function SectionBanner({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mt-[40px] mb-[30px] py-[14px] bg-[#f3f3f3] text-center font-pn-bold text-ink text-[16px]">
-      {children}
     </div>
   )
 }
