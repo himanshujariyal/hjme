@@ -3,43 +3,35 @@
 /* ===== PROXIMA NOVA FONTS ===== */
 @font-face {
   font-family: 'proxima_nova_rgregular';
-  src: url('/fonts/proximanova-regular.eot');
-  src: url('/fonts/proximanova-regular.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/proximanova-regular.woff') format('woff'),
-       url('/fonts/proximanova-regular.ttf') format('truetype'),
-       url('/fonts/proximanova-regular.svg#proxima_nova_rgregular') format('svg');
+  src: url('/fonts/proximanova-regular.woff2') format('woff2'),
+       url('/fonts/proximanova-regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'proxima_nova_rgbold';
-  src: url('/fonts/proximanova-bold.eot');
-  src: url('/fonts/proximanova-bold.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/proximanova-bold.woff') format('woff'),
-       url('/fonts/proximanova-bold.ttf') format('truetype'),
-       url('/fonts/proximanova-bold.svg#proxima_nova_rgbold') format('svg');
+  src: url('/fonts/proximanova-bold.woff2') format('woff2'),
+       url('/fonts/proximanova-bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'proxima_novalight';
-  src: url('/fonts/proximanova-light.eot');
-  src: url('/fonts/proximanova-light.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/proximanova-light.woff') format('woff'),
-       url('/fonts/proximanova-light.ttf') format('truetype'),
-       url('/fonts/proximanova-light.svg#proxima_novalight') format('svg');
+  src: url('/fonts/proximanova-light.woff2') format('woff2'),
+       url('/fonts/proximanova-light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'proxima_novasemibold';
-  src: url('/fonts/proximanova-semibold.eot');
-  src: url('/fonts/proximanova-semibold.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/proximanova-semibold.woff') format('woff'),
-       url('/fonts/proximanova-semibold.ttf') format('truetype'),
-       url('/fonts/proximanova-semibold.svg#proxima_novasemibold') format('svg');
+  src: url('/fonts/proximanova-semibold.woff2') format('woff2'),
+       url('/fonts/proximanova-semibold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ===== DESIGN TOKENS (Tailwind v4 @theme) ===== */

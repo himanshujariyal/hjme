@@ -67,6 +67,11 @@ export default function HeaderWave() {
 
       // Easing amplitude makes mouse-driven changes feel buttery.
       amp += (targetAmp - amp) * 0.06
+      // Clamp to what actually fits inside the strip so crests/troughs
+      // never clip against the top/bottom edges. Peak excursion of the
+      // layered sines is amp * (1 + 0.35); reserve 1px for the stroke.
+      const maxAmp = Math.max(0, (height / 2 - 1) / 1.35)
+      const drawAmp = Math.min(amp, maxAmp)
       // Phase advances in seconds → constant speed regardless of fps.
       if (!reduce) phase += dt * 0.9
 
@@ -80,8 +85,8 @@ export default function HeaderWave() {
         // Two layered sines at different speeds/frequencies → organic, not mechanical.
         const y =
           baseY +
-          Math.sin(phase + t * Math.PI * 2.2) * amp +
-          Math.sin(phase * 1.35 + t * Math.PI * 4.1) * amp * 0.35
+          Math.sin(phase + t * Math.PI * 2.2) * drawAmp +
+          Math.sin(phase * 1.35 + t * Math.PI * 4.1) * drawAmp * 0.35
         points.push({ x, y })
       }
 
@@ -96,8 +101,8 @@ export default function HeaderWave() {
         const yc = (points[i].y + points[i + 1].y) / 2
         ctx.quadraticCurveTo(points[i].x, points[i].y, xc, yc)
       }
-      const last = points[points.length - 1]
-      ctx.lineTo(last.x, last.y)
+      const end = points[points.length - 1]
+      ctx.lineTo(end.x, end.y)
 
       ctx.strokeStyle = 'rgba(82, 84, 88, 0.55)' // ink, half-alpha
       ctx.lineWidth = 1
