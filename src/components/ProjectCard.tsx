@@ -1,5 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import type { Project } from '../data/projects'
+import { asset } from '../lib/asset'
 
 interface Props {
   project: Project
@@ -14,7 +15,7 @@ export default function ProjectCard({ project }: Props) {
       {/* Background image — scales on hover */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[400ms] ease-out group-hover:scale-105"
-        style={{ backgroundImage: `url(${project.thumb})` }}
+        style={{ backgroundImage: `url(${asset(project.thumb)})` }}
       />
       {/* Overlay (always-on subtle tint, slightly darker on hover) */}
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 transition-colors duration-300 group-hover:bg-black/35">

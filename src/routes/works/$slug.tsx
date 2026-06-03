@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import { projects } from '../../data/projects'
 import { getProjectDetail } from '../../data/projectDetails'
+import { asset } from '../../lib/asset'
 
 export const Route = createFileRoute('/works/$slug')({
   loader: ({ params }) => {
@@ -62,7 +63,7 @@ function ProjectDetailPage() {
       {/* ─── Hero with prev/next ─── */}
       <section
         className="relative h-[280px] bg-cover bg-center"
-        style={{ backgroundImage: `url(${project.thumb})` }}
+        style={{ backgroundImage: `url(${asset(project.thumb)})` }}
         role="img"
         aria-label={`${project.title} cover`}
       >
@@ -139,7 +140,7 @@ function ProjectDetailPage() {
               {block.image && (
                 <figure>
                   <img
-                    src={block.image}
+                    src={asset(block.image)}
                     alt={block.heading ?? ''}
                     loading="lazy"
                     className="block w-full h-auto"
