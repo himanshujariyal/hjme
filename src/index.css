@@ -96,3 +96,24 @@ body {
 /* Tiny utility shims (cannot be expressed as Tailwind utilities) */
 .anim-fadein-1 { animation: fadein 0.2s ease-out 0.5s forwards; }
 .anim-fadein-2 { animation: fadein 0.3s ease-out 1.0s forwards; }
+
+/* Slow pulse for the header status dot (more relaxed than Tailwind's animate-pulse). */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1);   opacity: 0.6; }
+  50%      { transform: scale(2.2); opacity: 0;   }
+}
+.animate-pulse-slow { animation: pulse-slow 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* "Slow" word — letters fade and slide in slowly, on purpose. */
+@keyframes slow-reveal {
+  from { opacity: 0; filter: blur(6px); transform: translateY(6px); }
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0);   }
+}
+.slow-letter {
+  display: inline-block;
+  opacity: 0;
+  animation: slow-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slow-letter { animation: none; opacity: 1; filter: none; transform: none; }
+}

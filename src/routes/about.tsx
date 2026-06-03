@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import Reveal from '../components/Reveal'
 
 export const Route = createFileRoute('/about')({
   component: AboutPage,
@@ -15,7 +16,7 @@ const experiences: Experience[] = [
   {
     company: 'Microsoft',
     url: 'https://www.microsoft.com/',
-    role: 'Senior Software Engineer',
+    role: 'Senior Software Engineer · Bing',
     range: '2018 — Now',
   },
   {
@@ -33,125 +34,220 @@ const experiences: Experience[] = [
   {
     company: 'IMG, IIT Roorkee',
     url: 'https://channeli.in/',
-    role: 'Head, UI & Frontend',
+    role: 'Head — UI & Frontend',
     range: '2013 — 16',
   },
 ]
 
-const focusAreas = ['Web Performance', 'PWA', 'TypeScript', 'React', 'Accessibility']
-
 const socials = [
-  { label: 'Email', href: 'mailto:himanshujariyal@gmail.com' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/himanshujariyal' },
-  { label: 'GitHub', href: 'https://github.com/himanshujariyal' },
-  { label: 'X', href: 'https://x.com/him_jar' },
+  { label: 'Email',    href: 'mailto:himanshujariyal@gmail.com',           handle: 'himanshujariyal@gmail.com' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/himanshujariyal', handle: 'in/himanshujariyal' },
+  { label: 'GitHub',   href: 'https://github.com/himanshujariyal',          handle: '@himanshujariyal' },
+  { label: 'X',        href: 'https://x.com/him_jar',                       handle: '@him_jar' },
 ]
+
+// Monospace stack — kept as the about page's quiet signature (used only
+// on the left-rail labels and a couple of meta values). Just enough
+// contrast against Proxima Nova to give the page a "field notes" feel
+// without taking over.
+const MONO =
+  "font-['ui-monospace',_'SFMono-Regular',_Menlo,_Consolas,_'Liberation_Mono',_monospace]"
 
 function AboutPage() {
   return (
-    <section className="pt-[30px] pb-[60px] bg-white">
-      <div className="mx-auto w-1/2 max-lg:w-4/5 max-[600px]:w-full max-[600px]:px-4 max-[600px]:box-border">
-
-        {/* ===== HERO ===== */}
-        <header className="pt-[20px]">
-          <p className="font-pn text-body text-[16px] leading-[26px]">
-            Hey, I&rsquo;m Himanshu — a Senior Software Engineer at{' '}
-            <span className="text-ink">Microsoft</span>, working out of Bellevue, WA. These
-            days I spend most of my time chasing milliseconds on the Bing Search results
-            page, where I lead the work on{' '}
-            <span className="text-ink">INP &amp; responsiveness</span>. Thanks for stopping
-            by.
-          </p>
-
-          {/* Focus pills inline under hero */}
-          <div className="flex flex-wrap gap-[6px] mt-[20px]">
-            {focusAreas.map((tag) => (
-              <span
-                key={tag}
-                className="inline-block px-[10px] py-[4px] text-[11px] tracking-[0.05em] font-pn text-ink border border-line rounded-full hover:border-accent hover:text-accent transition-colors cursor-default"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </header>
-
-        {/* ===== EXPERIENCE ===== */}
-        <SectionHeading>Experience</SectionHeading>
-        <ul className="divide-y divide-line2 border-y border-line2">
-          {experiences.map((exp) => (
-            <li key={exp.company} className="group">
-              <a
-                href={exp.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-baseline justify-between py-[14px] no-underline hover:bg-[rgba(255,164,51,0.04)] -mx-[8px] px-[8px] transition-colors"
-              >
-                <div className="flex items-baseline gap-[12px] min-w-0">
-                  <span className="font-pn-bold text-ink text-[15px] group-hover:text-accent transition-colors truncate">
-                    {exp.company}
-                  </span>
-                  <span className="font-pn text-muted text-[13px] truncate max-[600px]:hidden">
-                    {exp.role}
-                  </span>
-                </div>
-                <span className="text-[11px] tracking-[0.2em] uppercase text-muted shrink-0 ml-[12px]">
-                  {exp.range}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* ===== EDUCATION + ELSEWHERE — single row ===== */}
-        <div className="mt-[40px] grid grid-cols-2 max-[600px]:grid-cols-1 gap-[32px]">
-          <div>
-            <Label>Education</Label>
-            <div className="font-pn-bold text-ink text-[14px] mt-[6px]">
-              IIT Roorkee
-            </div>
-            <div className="font-pn text-muted text-[13px]">
-              B.Tech, Computer Science · 2012–16
-            </div>
-          </div>
-          <div>
-            <Label>Elsewhere</Label>
-            <div className="flex flex-wrap gap-x-[16px] gap-y-[4px] mt-[6px]">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target={s.href.startsWith('http') ? '_blank' : undefined}
-                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-[14px] font-pn text-ink no-underline border-b border-line2 hover:text-accent hover:border-accent transition-colors pb-[1px]"
-                >
-                  {s.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-      </div>
+    <section className="bg-white">
+      <Intro />
+      <Experiencee />
+      <Education />
+      <Elsewhere />
+      <Signoff />
     </section>
   )
 }
 
-function SectionHeading({ children }: { children: React.ReactNode }) {
+/* ───────────────────────── Row primitive ───────────────────────── */
+
+interface RowProps {
+  label: string
+  children: React.ReactNode
+  first?: boolean
+}
+
+/**
+ * Every section is a quiet two-column row: small monospace label on the
+ * left (sticky), content on the right. Hairline rule between rows.
+ */
+function Row({ label, children, first }: RowProps) {
   return (
-    <div className="mt-[44px] mb-[16px]">
-      <h2 className="font-pn-bold text-ink text-[12px] tracking-[0.3em] uppercase inline-block">
-        {children}
-      </h2>
-      <span className="block w-[28px] h-[2px] bg-accent mt-[6px]" />
+    <div
+      className={`mx-auto max-w-[1170px] px-[24px] py-[48px] md:py-[64px] ${
+        first ? '' : 'border-t border-line'
+      }`}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-[32px] gap-y-[20px]">
+        <div
+          className={`${MONO} text-[11px] uppercase tracking-[0.22em] text-muted md:pt-[8px] md:sticky md:top-[80px] md:self-start`}
+        >
+          {label}
+        </div>
+        <div>{children}</div>
+      </div>
     </div>
   )
 }
 
-function Label({ children }: { children: React.ReactNode }) {
+/* ───────────────────────── Intro ───────────────────────── */
+
+function Intro() {
   return (
-    <div className="text-[10px] tracking-[0.3em] uppercase text-accent font-pn-bold">
-      {children}
-    </div>
+    <Reveal>
+      <Row label="intro" first>
+        <p className="font-pn text-ink text-[24px] md:text-[34px] leading-[1.3] tracking-[-0.01em] max-w-[34ch]">
+          <span className="font-pn-bold">Himanshu</span>, building quieter,
+          quicker interfaces<span className="text-accent">.</span>
+        </p>
+        <p className="mt-[16px] font-pn text-muted text-[14px] md:text-[15px] tracking-[-0.005em]">
+          Currently at Microsoft, Redmond.
+        </p>
+        <p className="mt-[24px] font-pn text-body text-[15px] md:text-[16px] leading-[1.65] max-w-[58ch]">
+          These days I spend most of my time chasing milliseconds on the Bing
+          Search results page, where I lead the work on INP and runtime
+          responsiveness. Before that — a smaller startup, a quick-commerce
+          stint, and four good years of student-run web teams at IIT Roorkee.
+        </p>
+      </Row>
+    </Reveal>
+  )
+}
+
+/* ───────────────────────── Experience ───────────────────────── */
+
+function Experiencee() {
+  return (
+    <Reveal>
+      <Row label="experience">
+        <ul className="-mt-[8px]">
+          {experiences.map((e, i) => (
+            <Reveal key={e.company} delay={i * 50}>
+              <ExperienceRow exp={e} />
+            </Reveal>
+          ))}
+        </ul>
+      </Row>
+    </Reveal>
+  )
+}
+
+function ExperienceRow({ exp }: { exp: Experience }) {
+  return (
+    <li className="border-b border-line last:border-b-0">
+      <a
+        href={exp.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group grid grid-cols-[1fr_auto] items-baseline gap-[16px] py-[18px] md:py-[22px] no-underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+      >
+        <div className="flex flex-wrap items-baseline gap-x-[16px] gap-y-[4px] min-w-0">
+          <span className="font-pn-bold text-ink text-[18px] md:text-[22px] leading-[1.2] tracking-[-0.01em] transition-colors duration-300 group-hover:text-accent">
+            {exp.company}
+          </span>
+          <span className="font-pn text-muted text-[13px] md:text-[14px]">
+            {exp.role}
+          </span>
+        </div>
+        <div
+          className={`${MONO} flex items-baseline gap-[12px] text-[11px] uppercase tracking-[0.18em] text-muted`}
+        >
+          <span className="tabular-nums">{exp.range}</span>
+          <span className="text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
+            ↗
+          </span>
+        </div>
+      </a>
+    </li>
+  )
+}
+
+/* ───────────────────────── Education ───────────────────────── */
+
+function Education() {
+  return (
+    <Reveal>
+      <Row label="education">
+        <div className="flex flex-wrap items-baseline gap-x-[16px] gap-y-[4px]">
+          <span className="font-pn-bold text-ink text-[18px] md:text-[22px] leading-[1.2] tracking-[-0.01em]">
+            IIT Roorkee
+          </span>
+          <span className="font-pn text-muted text-[14px]">
+            B.Tech · Computer Science &amp; Engineering
+          </span>
+          <span
+            className={`${MONO} text-[11px] uppercase tracking-[0.18em] text-muted tabular-nums`}
+          >
+            2012 — 16
+          </span>
+        </div>
+      </Row>
+    </Reveal>
+  )
+}
+
+/* ───────────────────────── Elsewhere ───────────────────────── */
+
+function Elsewhere() {
+  return (
+    <Reveal>
+      <Row label="elsewhere">
+        <ul className="-mt-[8px]">
+          {socials.map((s, i) => (
+            <Reveal key={s.label} delay={i * 40}>
+              <li className="border-b border-line last:border-b-0">
+                <a
+                  href={s.href}
+                  target={s.href.startsWith('http') ? '_blank' : undefined}
+                  rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="group grid grid-cols-[110px_1fr_auto] items-baseline gap-[16px] py-[14px] md:py-[16px] no-underline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+                >
+                  <span
+                    className={`${MONO} text-[11px] uppercase tracking-[0.22em] text-muted`}
+                  >
+                    {s.label}
+                  </span>
+                  <span className="font-pn text-ink text-[15px] md:text-[16px] transition-colors duration-300 group-hover:text-accent truncate">
+                    {s.handle}
+                  </span>
+                  <span className="text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
+                    {s.href.startsWith('mailto:') ? '→' : '↗'}
+                  </span>
+                </a>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </Row>
+    </Reveal>
+  )
+}
+
+/* ───────────────────────── Signoff ───────────────────────── */
+
+function Signoff() {
+  return (
+    <Reveal>
+      <div className="mx-auto max-w-[1170px] px-[24px] py-[96px] border-t border-line">
+        <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-x-[32px] gap-y-[8px]">
+          <span
+            className={`${MONO} text-[11px] uppercase tracking-[0.22em] text-muted`}
+          >
+            signed
+          </span>
+          <p
+            className={`${MONO} text-[12px] uppercase tracking-[0.22em] text-muted`}
+          >
+            H. J. · Redmond · 2026
+          </p>
+        </div>
+      </div>
+    </Reveal>
   )
 }
